@@ -1,0 +1,21 @@
+{
+    "extends": [
+        "airbnb-base",
+        "plugin:vue/recommended"
+    ],
+
+    "plugins": [
+        "vue"
+    ],
+
+    "rules": {
+        "indent": 0,
+        "semi": 0,
+
+        "import/extensions": 0,
+        "import/no-unresolved": 0,
+
+        "vue/html-indent": [2, 4],
+        "vue/script-indent": [2, 4, {"baseIndent": 1}]
+    }
+}
