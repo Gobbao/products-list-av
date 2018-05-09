@@ -35,7 +35,7 @@
 
         background-color: #F7F7F7;
 
-        border-bottom: 2px solid $color-grey--border;
+        border-bottom: 2px solid $color-grey;
 
         &__search {
             width: 200px;

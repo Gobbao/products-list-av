@@ -28,11 +28,11 @@
             width: 100%;
             height: 25px;
 
-            border: 2px solid $color-grey--border;
+            border: 2px solid $color-grey;
             border-radius: 25px;
 
             &::placeholder {
-                color: darken($color-grey--border, 50);
+                color: darken($color-grey, 50);
                 opacity: .5;
             }
         }
