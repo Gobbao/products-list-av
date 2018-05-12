@@ -29,6 +29,6 @@
     .container {
         height: calc(100vh - 50px);
 
-        background-color: $color-grey;
+        background-color: $color-grey--dark;
     }
 </style>

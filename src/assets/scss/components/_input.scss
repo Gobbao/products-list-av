@@ -1,6 +1,6 @@
 @import '~_scss_config/variables';
 
-$input-color  : $color-grey;
+$input-color  : darken($color-grey--dark, 15);
 $input-height : 25px;
 
 .input {
@@ -10,7 +10,7 @@ $input-height : 25px;
     padding-right: 10px;
     padding-left: 10px;
 
-    border: 2px solid $input-color;
+    border: 1px solid $input-color;
     border-radius: 25px;
 }
 
