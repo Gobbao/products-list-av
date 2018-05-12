@@ -1,9 +1,9 @@
 <template>
     <input-icon
         v-model="search"
-        :left-icons="{ search: actionWrapper }"
+        :left-icons="{ search: () => action(search) }"
         :right-icons="{ 'times-circle': clear }"
-        placeholder="Pesquise aqui" />
+        :placeholder="placeholder" />
 </template>
 
 <script>
@@ -35,10 +35,6 @@
         },
 
         methods: {
-            actionWrapper() {
-                return () => this.action(this.search)
-            },
-
             clear() {
                 this.search = ''
             },

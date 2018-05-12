@@ -9,7 +9,7 @@
 </template>
 
 <script>
-    import Search from '_commons/Search.vue'
+    import Search from '_commons/inputs/Search.vue'
 
     export default {
         name: 'Header',
