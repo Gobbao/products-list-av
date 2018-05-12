@@ -1,6 +1,8 @@
 <template>
     <div class="header">
-        mmartan
+        <img
+            class="header__image"
+            src="~_images/mmartan.png">
 
         <search
             class="header__search"
@@ -33,9 +35,14 @@
         align-items: center;
         justify-content: space-between;
 
-        background-color: #F7F7F7;
+        background-color: $color-grey;
 
-        border-bottom: 2px solid $color-grey;
+        border-bottom: 1px solid darken($color-grey, 2);
+
+        &__image {
+            width: 100px;
+            height: 20px;
+        }
 
         &__search {
             width: 200px;
