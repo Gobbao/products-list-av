@@ -1,5 +1,8 @@
 <template>
-    <form class="input_icon input">
+    <form
+        class="input_icon input"
+        @submit.prevent="action"
+    >
         <i
             v-for="icon in Object.keys(leftIcons)"
             :key="icon"
@@ -43,6 +46,11 @@
             placeholder: {
                 type: String,
                 default: '',
+            },
+
+            action: {
+                type: Function,
+                default: () => {},
             },
 
             value: {

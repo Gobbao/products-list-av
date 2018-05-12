@@ -1,6 +1,7 @@
 <template>
     <input-icon
         v-model="search"
+        :action="() => action(search)"
         :left-icons="{ search: () => action(search) }"
         :right-icons="{ 'times-circle': clear }"
         :placeholder="placeholder" />
