@@ -4,9 +4,10 @@
             v-for="icon in Object.keys(leftIcons)"
             :key="icon"
             :class="getIconClasses(icon)"
-        />
+            @click="leftIcons[icon]" />
 
         <input
+            v-model="inputValue"
             :type="type"
             :placeholder="placeholder"
             class="input_icon__input input-placeholder">
@@ -15,7 +16,7 @@
             v-for="icon in Object.keys(rightIcons)"
             :key="icon"
             :class="getIconClasses(icon, 'right')"
-        />
+            @click="rightIcons[icon]" />
     </form>
 </template>
 
@@ -42,6 +43,22 @@
             placeholder: {
                 type: String,
                 default: '',
+            },
+
+            value: {
+                type: String,
+                default: '',
+            },
+        },
+
+        computed: {
+            inputValue: {
+                get() {
+                    return this.value
+                },
+                set(value) {
+                    this.$emit('input', value)
+                },
             },
         },
 
@@ -95,4 +112,3 @@
         }
     }
 </style>
-

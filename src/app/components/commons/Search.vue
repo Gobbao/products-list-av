@@ -1,6 +1,8 @@
 <template>
     <input-icon
-        :left-icons="{ search: '', times: '' }"
+        v-model="search"
+        :left-icons="{ search: actionWrapper }"
+        :right-icons="{ 'times-circle': clear }"
         placeholder="Pesquise aqui" />
 </template>
 
@@ -19,10 +21,27 @@
                 type: String,
                 default: '',
             },
+
+            action: {
+                type: Function,
+                default: () => {},
+            },
+        },
+
+        data() {
+            return {
+                search: '',
+            }
+        },
+
+        methods: {
+            actionWrapper() {
+                return () => this.action(this.search)
+            },
+
+            clear() {
+                this.search = ''
+            },
         },
     }
 </script>
-
-<style lang="scss" scoped>
-</style>
-
