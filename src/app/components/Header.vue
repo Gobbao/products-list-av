@@ -23,6 +23,7 @@
 </script>
 
 <style lang="scss" scoped>
+    @import '~_scss_config/screen';
     @import '~_scss_config/variables';
 
     .header {
@@ -45,7 +46,11 @@
         }
 
         &__search {
-            width: 200px;
+            width: 180px;
+
+            @include media-q ($screen-mc) {
+                width: 200px;
+            }
         }
     }
 </style>
