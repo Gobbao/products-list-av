@@ -68,14 +68,12 @@
         &__header {
             height: 80px;
 
-            background-color: #EAE9EE;
-
-            @include divider(darken($color-grey, 5));
+            background-color: $color-grey--light;
 
             &__title {
                 padding: 0 15px;
 
-                color: #332961;
+                color: $color-purple;
                 font-weight: 300;
                 letter-spacing: -1px;
                 line-height: 80px;
