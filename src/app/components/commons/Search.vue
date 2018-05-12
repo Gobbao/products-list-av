@@ -1,15 +1,18 @@
 <template>
-    <div class="search">
-        <input
-            :placeholder="placeholder"
-            class="search__input"
-            type="text">
-    </div>
+    <input-icon
+        :left-icons="{ search: '', times: '' }"
+        placeholder="Pesquise aqui" />
 </template>
 
 <script>
+    import InputIcon from '_commons/inputs/InputIcon.vue'
+
     export default {
         name: 'Search',
+
+        components: {
+            InputIcon,
+        },
 
         props: {
             placeholder: {
@@ -21,21 +24,5 @@
 </script>
 
 <style lang="scss" scoped>
-    @import '~_scss_config/variables';
-
-    .search {
-        &__input {
-            width: 100%;
-            height: 25px;
-
-            border: 2px solid $color-grey;
-            border-radius: 25px;
-
-            &::placeholder {
-                color: darken($color-grey, 50);
-                opacity: .5;
-            }
-        }
-    }
 </style>
 
