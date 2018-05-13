@@ -39,6 +39,7 @@
         background-color: $color-grey;
 
         border-bottom: 1px solid darken($color-grey, 2);
+        box-shadow: 0px 1px 5px 0px darken($color-grey, 20);
 
         &__image {
             width: 100px;

@@ -68,7 +68,11 @@
         &__header {
             height: 80px;
 
+            margin-top: 2px;
+
             background-color: $color-grey--light;
+
+            @include divider(darken($color-grey--dark, 5));
 
             &__title {
                 padding: 0 15px;

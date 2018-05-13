@@ -28,7 +28,9 @@
 
     .container {
         height: calc(100vh - 50px);
+    }
 
+    #app {
         background-color: $color-grey--dark;
     }
 </style>
