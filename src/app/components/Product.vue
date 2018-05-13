@@ -1,5 +1,18 @@
 <template>
     <div class="product">
+        <div class="product__info">
+            <div class="product__info__basic">
+                <span class="product__info__basic__name">{{ product.name }}</span>
+                <span class="product__info__basic__categories">{{ categories }}</span>
+            </div>
+
+            <div class="product__info__price">
+                <span class="product__info__price__old">R$98,00</span>
+                <span class="product__info__price__per">por</span>
+                <span class="product__info__price__current">R$298,00</span>
+            </div>
+        </div>
+
         <div class="product__images">
             <img
                 class="product__images__single"
@@ -10,18 +23,6 @@
             <img
                 class="product__images__single"
                 src="~_images/kit-cama.jpg">
-        </div>
-
-        <div class="product__info">
-            <div class="product__info__basic">
-                <span class="product__info__basic__name">{{ product.name }}</span>
-                <span class="product__info__basic__categories">{{ categories }}</span>
-            </div>
-            <div class="product__info__price">
-                <span class="product__info__price__old">R$98,00</span>
-                <span class="product__info__price__per">por</span>
-                <span class="product__info__price__current">R$298,00</span>
-            </div>
         </div>
     </div>
 </template>
@@ -51,38 +52,26 @@
     @import '~_scss_config/variables';
 
     .product {
-        height: 80px;
+        height: 145px;
 
-        padding: 4px 15px;
+        padding: 5px 10px;
 
         background-color: $color-white;
 
         display: flex;
-        align-items: center;
-
-        &__images {
-            margin-right: 20px;
-
-            display: flex;
-
-            &__single {
-                width: 60px;
-                height: 60px;
-
-                &:not(:first-child) {
-                    margin-left: 4px;
-                }
-            }
-        }
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-between;
 
         &__info {
             width: 100%;
-            height: 100%;
+            height: 60px;
 
             max-width: 350px;
 
             display: flex;
-            align-items: center;
+            flex-direction: column;
+            align-items: flex-start;
             justify-content: space-between;
 
             &__basic {
@@ -112,6 +101,18 @@
                 &__current {
                     color: black;
                 }
+            }
+        }
+
+        &__images {
+            width: 100%;
+
+            display: flex;
+            justify-content: space-around;
+
+            &__single {
+                width: 60px;
+                height: 60px;
             }
         }
     }

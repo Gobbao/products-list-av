@@ -27,7 +27,7 @@
     @import '~_scss_config/variables';
 
     .container {
-        height: calc(100vh - 50px);
+        min-height: calc(100vh - 50px);
     }
 
     #app {

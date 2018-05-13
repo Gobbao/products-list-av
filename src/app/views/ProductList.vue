@@ -10,7 +10,8 @@
             <product
                 v-for="product in products"
                 :key="product.id"
-                :product="product" />
+                :product="product"
+                class="prod_list__content__product" />
         </div>
 
         <div class="prod_list__actions">actions</div>
@@ -97,6 +98,12 @@
                 text-transform: uppercase;
 
                 @include divider($color-gold, 3px, 5px);
+            }
+
+            &__product {
+                &:not(:last-child) {
+                    margin-bottom: 2px;
+                }
             }
         }
     }
