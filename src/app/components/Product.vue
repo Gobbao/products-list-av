@@ -49,7 +49,10 @@
 </script>
 
 <style lang="scss" scoped>
+    @import '~_scss_config/screen';
     @import '~_scss_config/variables';
+
+    $product-image-size : 200px;
 
     .product {
         height: 145px;
@@ -63,6 +66,13 @@
         align-items: flex-start;
         justify-content: space-between;
 
+        @include media-q($screen-xs) {
+            height: 70px;
+
+            flex-direction: row-reverse;
+            align-content: center;
+        }
+
         &__info {
             width: 100%;
             height: 60px;
@@ -73,6 +83,12 @@
             flex-direction: column;
             align-items: flex-start;
             justify-content: space-between;
+
+            @include media-q {
+                min-width: calc(100% - #{$product-image-size});
+                flex-direction: row;
+                align-items: center;
+            }
 
             &__basic {
                 display: flex;
@@ -105,14 +121,16 @@
         }
 
         &__images {
-            width: 100%;
+            min-width: $product-image-size;
 
             display: flex;
-            justify-content: space-around;
+            justify-content: flex-start;
 
             &__single {
                 width: 60px;
                 height: 60px;
+
+                margin-right: 5px;
             }
         }
     }
