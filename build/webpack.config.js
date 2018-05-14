@@ -4,8 +4,6 @@ const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
     , { VueLoaderPlugin } = require('vue-loader')
 
-console.log('ENV =>', process.env.NODE_ENV)
-
 module.exports = {
     mode: 'development',
 

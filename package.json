@@ -4,7 +4,7 @@
   "description": "vuejs template",
   "main": "src/main.js",
   "scripts": {
-    "dev": "webpack-dev-server --hot --config build/webpack.config.js",
+    "dev": "NODE_ENV=development webpack-dev-server --hot --config build/webpack.config.js",
     "server:dev": "nodemon server/main.js",
     "create:module": "node bin/create-module.js"
   },
