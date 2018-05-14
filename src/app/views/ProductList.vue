@@ -127,15 +127,17 @@
         }
 
         &__actions {
-            height: 100px;
+            height: 120px;
 
             display: flex;
             flex-direction: column;
             justify-content: space-between;
 
-            padding: 0 10vw 20px 10vw;
+            padding: 20px 10vw;
 
             @include media-q() {
+                height: 70px;
+
                 flex-direction: row;
             }
 
