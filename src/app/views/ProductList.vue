@@ -14,22 +14,31 @@
                 class="prod_list__content__product" />
         </div>
 
-        <div class="prod_list__actions">actions</div>
+        <div class="prod_list__actions">
+            <custom-select
+                v-model="limit"
+                :options="limits"
+                sufix="produtos por página" />
+        </div>
     </div>
 </template>
 
 <script>
+    import CustomSelect from '_commons/Select.vue'
     import Product from '_components/Product.vue'
 
     export default {
         name: 'ProductList',
 
         components: {
+            CustomSelect,
             Product,
         },
 
         data() {
             return {
+                limit: '8',
+                limits: ['8', '16', '24'],
                 products: [
                     {
                         id: 1,
@@ -105,6 +114,10 @@
                     margin-bottom: 2px;
                 }
             }
+        }
+
+        &__actions {
+            padding: 0 10vw 20px 10vw;
         }
     }
 </style>
