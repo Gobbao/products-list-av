@@ -7,9 +7,13 @@
             </div>
 
             <div class="product__info__price">
-                <span class="product__info__price__old">R$98,00</span>
+                <span class="product__info__price__old">
+                    {{ formatCurrency(product.oldPrice || 0) }}
+                </span>
                 <span class="product__info__price__per">por</span>
-                <span class="product__info__price__current">R$298,00</span>
+                <span class="product__info__price__current">
+                    {{ formatCurrency(product.currentPrice || 0) }}
+                </span>
             </div>
         </div>
 
@@ -43,6 +47,12 @@
                 return this.product.categories
                     .map(category => category.name)
                     .join(' · ')
+            },
+        },
+
+        methods: {
+            formatCurrency(value) {
+                return `R$ ${value.toFixed(2)}`.replace('.', ',')
             },
         },
     }
