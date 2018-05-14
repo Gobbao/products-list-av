@@ -23,7 +23,8 @@
 
             <paginate
                 v-model="page"
-                :total-pages="5" />
+                :total-pages="5"
+                class="prod_list__actions__paginate" />
         </div>
     </div>
 </template>
@@ -134,9 +135,19 @@
 
             padding: 0 10vw 20px 10vw;
 
+            @include media-q() {
+                flex-direction: row;
+            }
+
             &__select {
                 @include media-q($screen-xs) {
                     max-width: 220px;
+                }
+            }
+
+            &__paginate {
+                @include media-q($screen-xs) {
+                    margin: 0;
                 }
             }
         }
