@@ -20,12 +20,15 @@
                 :options="limits"
                 sufix="produtos por página"
                 class="prod_list__actions__select" />
+
+            <paginate />
         </div>
     </div>
 </template>
 
 <script>
     import CustomSelect from '_commons/Select.vue'
+    import Paginate from '_commons/Paginate.vue'
     import Product from '_components/Product.vue'
 
     export default {
@@ -33,6 +36,7 @@
 
         components: {
             CustomSelect,
+            Paginate,
             Product,
         },
 
@@ -119,6 +123,12 @@
         }
 
         &__actions {
+            height: 100px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
             padding: 0 10vw 20px 10vw;
 
             &__select {
