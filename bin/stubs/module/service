@@ -1,0 +1,11 @@
+const BaseService = require('../base.service')
+    , constants = require('./{{!!name!!}}.constants')
+    , rules = require('./{{!!name!!}}.rules')
+
+class {{!!nameCapitalized!!}}Service extends BaseService {
+    getTable() {
+        return constants.table
+    }
+}
+
+module.exports = new {{!!nameCapitalized!!}}Service
