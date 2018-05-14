@@ -7,10 +7,10 @@ class ProductsService extends BaseService {
         return constants.table
     }
 
-    list() {
+    async list() {
         return this.formatResponse(
             constants.routes.list,
-            { name: 'Prod 1' }
+            await this.collection.find()
         )
     }
 }
