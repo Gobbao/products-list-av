@@ -19,14 +19,10 @@
 
         <div class="product__images">
             <img
-                class="product__images__single"
-                src="~_images/kit-cama.jpg">
-            <img
-                class="product__images__single"
-                src="~_images/kit-cama.jpg">
-            <img
-                class="product__images__single"
-                src="~_images/kit-cama.jpg">
+                v-for="(image, index) in (product.images || [])"
+                :key="index"
+                :src="image"
+                class="product__images__single">
         </div>
     </div>
 </template>

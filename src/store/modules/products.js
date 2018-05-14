@@ -21,6 +21,7 @@ export default {
             delete params.count
             delete params.totalPages
 
+            commit('setPaginate', { paginate: { products: [] } })
             axios.get(url, { params }).then(response => commit('setPaginate', response.data.data))
         },
     },
