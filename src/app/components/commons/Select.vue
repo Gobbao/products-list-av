@@ -99,6 +99,12 @@
                 & .select__list {
                     &__option {
                         display: block;
+
+                        &:hover {
+                            background-color: $color-grey--dark;
+
+                            color: darken($color-grey--dark, 80);
+                        }
                     }
 
                     &__arrow {
@@ -116,6 +122,8 @@
 
                 line-height: $select-height;
 
+                cursor: pointer;
+
                 &:not(:last-child) {
                     border-bottom: 1px solid darken($color-grey--dark, 5);
                 }
@@ -132,6 +140,8 @@
 
                 color: darken($color-grey--dark, 10);
                 font-size: 20px;
+
+                cursor: pointer;
 
                 transform: rotate(0);
 

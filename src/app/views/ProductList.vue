@@ -18,7 +18,8 @@
             <custom-select
                 v-model="limit"
                 :options="limits"
-                sufix="produtos por página" />
+                sufix="produtos por página"
+                class="prod_list__actions__select" />
         </div>
     </div>
 </template>
@@ -71,6 +72,7 @@
 </script>
 
 <style lang="scss" scoped>
+    @import '~_scss_config/screen';
     @import '~_scss_config/variables';
     @import '~_scss_components/divider';
 
@@ -118,6 +120,12 @@
 
         &__actions {
             padding: 0 10vw 20px 10vw;
+
+            &__select {
+                @include media-q($screen-xs) {
+                    max-width: 220px;
+                }
+            }
         }
     }
 </style>
