@@ -1,16 +1,91 @@
 <template>
     <div class="paginate">
-        <i class="paginate__item fas fa-angle-double-left paginate__item--disabled" />
-        <i class="paginate__item fas fa-angle-left paginate__item--disabled" />
+        <i
+            :class="{'paginate__item--disabled': (currentPage === 1)}"
+            class="paginate__item fas fa-angle-double-left"
+            @click="changePage(1)" />
+        <i
+            :class="{'paginate__item--disabled': (currentPage === 1)}"
+            class="paginate__item fas fa-angle-left"
+            @click="changePage(currentPage - 1)" />
 
-        <div class="paginate__item paginate__item--selected">1</div>
-        <div class="paginate__item">2</div>
-        <div class="paginate__item">3</div>
+        <div
+            v-for="page in pages"
+            :key="page"
+            :class="{'paginate__item': true, 'paginate__item--selected': (page === value)}"
+            @click="changePage(page)"
+        >
+            {{ page }}
+        </div>
 
-        <i class="paginate__item fas fa-angle-right" />
-        <i class="paginate__item fas fa-angle-double-right" />
+        <i
+            :class="{'paginate__item--disabled': (currentPage === totalPages)}"
+            class="paginate__item fas fa-angle-right"
+            @click="changePage(currentPage + 1)" />
+        <i
+            :class="{'paginate__item--disabled': (currentPage === totalPages)}"
+            class="paginate__item fas fa-angle-double-right"
+            @click="changePage(totalPages)" />
     </div>
 </template>
+
+<script>
+    export default {
+        name: 'Paginate',
+
+        props: {
+            value: {
+                type: Number,
+                default: 1,
+            },
+
+            totalPages: {
+                type: Number,
+                default: 1,
+            },
+        },
+
+        computed: {
+            pages() {
+                const pages = []
+                const limit = 3
+                let startPage = this.value === this.totalPages
+                    ? this.totalPages - 2
+                    : this.value - 1
+                startPage = startPage <= 0 ? 1 : startPage
+                let endPage = startPage + limit
+                endPage = endPage > this.totalPages
+                    ? this.totalPages + 1
+                    : endPage
+
+                for (startPage; startPage < endPage; startPage += 1) {
+                    pages.push(startPage)
+                }
+
+                return pages
+            },
+
+            currentPage: {
+                get() {
+                    return this.value
+                },
+                set(page) {
+                    this.$emit('input', page)
+                },
+            },
+        },
+
+        methods: {
+            changePage(page) {
+                if (page < 1 || page > this.totalPages) {
+                    return
+                }
+
+                this.currentPage = page
+            },
+        },
+    }
+</script>
 
 <style lang="scss" scoped>
     @import '~_scss_config/variables';

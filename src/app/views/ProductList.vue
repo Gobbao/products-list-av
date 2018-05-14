@@ -21,7 +21,9 @@
                 sufix="produtos por página"
                 class="prod_list__actions__select" />
 
-            <paginate />
+            <paginate
+                v-model="page"
+                :total-pages="5" />
         </div>
     </div>
 </template>
@@ -44,6 +46,7 @@
             return {
                 limit: '8',
                 limits: ['8', '16', '24'],
+                page: 1,
                 products: [
                     {
                         id: 1,
