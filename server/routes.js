@@ -5,7 +5,7 @@ router.group('v1', router => {
     router.group('products', router => {
         const service = services['products']()
 
-        router.get('', req => service.list())
+        router.get('', req => service.list(req.query))
     })
 })
 
