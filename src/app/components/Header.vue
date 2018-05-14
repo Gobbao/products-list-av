@@ -5,6 +5,7 @@
             src="~_images/mmartan.png">
 
         <search
+            :action="updateProducts"
             class="header__search"
             placeholder="Lençol avulso" />
     </div>
@@ -18,6 +19,12 @@
 
         components: {
             Search,
+        },
+
+        methods: {
+            updateProducts(search) {
+                this.$store.dispatch('getProducts', { search })
+            },
         },
     }
 </script>

@@ -5,7 +5,7 @@
         </div>
 
         <div class="prod_list__content">
-            <span class="prod_list__content__total">200 produtos encontrados</span>
+            <span class="prod_list__content__total">{{ totalProducts }} produtos encontrados</span>
 
             <product
                 v-for="product in products"
@@ -23,7 +23,7 @@
 
             <paginate
                 v-model="page"
-                :total-pages="5"
+                :total-pages="totalPages"
                 class="prod_list__actions__paginate" />
         </div>
     </div>
@@ -45,36 +45,48 @@
 
         data() {
             return {
-                limit: '8',
-                limits: ['8', '16', '24'],
+                limit: '4',
+                limits: ['4', '8', '16', '24'],
                 page: 1,
-                products: [
-                    {
-                        id: 1,
-                        name: 'Kit de cama 210 fios',
-                        categories: [
-                            { name: 'Classic I' },
-                            { name: 'Solteiro Extra' },
-                        ],
-                    },
-                    {
-                        id: 2,
-                        name: 'Kit de cama 210 fios',
-                        categories: [
-                            { name: 'Classic I' },
-                            { name: 'Solteiro Extra' },
-                        ],
-                    },
-                    {
-                        id: 3,
-                        name: 'Kit de cama 210 fios',
-                        categories: [
-                            { name: 'Classic I' },
-                            { name: 'Solteiro Extra' },
-                        ],
-                    },
-                ],
             }
+        },
+
+        computed: {
+            products() {
+                return this.$store.state.products.paginate.products || []
+            },
+
+            totalProducts() {
+                return this.$store.state.products.paginate.count || 0
+            },
+
+            totalPages() {
+                return this.$store.state.products.paginate.totalPages || 0
+            },
+        },
+
+        watch: {
+            limit() {
+                this.page = 1
+                this.updateProducts()
+            },
+
+            page() {
+                this.updateProducts()
+            },
+        },
+
+        beforeMount() {
+            this.updateProducts()
+        },
+
+        methods: {
+            updateProducts() {
+                this.$store.dispatch('getProducts', {
+                    limit: this.limit,
+                    page: this.page,
+                })
+            },
         },
     }
 </script>
