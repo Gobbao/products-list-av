@@ -1,13 +1,19 @@
 <template>
     <div class="paginate">
-        <i
+        <div
             :class="{'paginate__item--disabled': (currentPage === 1)}"
-            class="paginate__item fas fa-angle-double-left"
-            @click="changePage(1)" />
-        <i
+            class="paginate__item"
+            @click="changePage(1)"
+        >
+            <i class="fas fa-angle-double-left" />
+        </div>
+        <div
             :class="{'paginate__item--disabled': (currentPage === 1)}"
-            class="paginate__item fas fa-angle-left"
-            @click="changePage(currentPage - 1)" />
+            class="paginate__item"
+            @click="changePage(currentPage - 1)"
+        >
+            <i class="fas fa-angle-left" />
+        </div>
 
         <div
             v-for="page in pages"
@@ -18,14 +24,20 @@
             {{ page }}
         </div>
 
-        <i
+        <div
             :class="{'paginate__item--disabled': (currentPage === totalPages)}"
-            class="paginate__item fas fa-angle-right"
-            @click="changePage(currentPage + 1)" />
-        <i
+            class="paginate__item"
+            @click="changePage(currentPage + 1)"
+        >
+            <i class="fas fa-angle-right" />
+        </div>
+        <div
             :class="{'paginate__item--disabled': (currentPage === totalPages)}"
-            class="paginate__item fas fa-angle-double-right"
-            @click="changePage(totalPages)" />
+            class="paginate__item"
+            @click="changePage(totalPages)"
+        >
+            <i class="fas fa-angle-double-right" />
+        </div>
     </div>
 </template>
 
