@@ -109,6 +109,8 @@
             line-height: $paginate-height;
             text-align: center;
 
+            cursor: pointer;
+
             &--box {
                 background-color: $color-white;
 
@@ -118,6 +120,8 @@
 
             &--disabled {
                 color: darken($color-grey--dark, 15);
+
+                cursor: default;
             }
 
             &--selected {
